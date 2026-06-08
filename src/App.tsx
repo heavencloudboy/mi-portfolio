@@ -7,6 +7,7 @@ import { ArrowUpRight, Download } from "lucide-react";
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap');
 
+  html { color-scheme: dark; scroll-behavior: smooth; }
   body { margin: 0; padding: 0; background: #020617; }
 
   :root {
@@ -28,6 +29,13 @@ const CSS = `
     --section-px:  2.5rem;
     --gradient-m5: linear-gradient(135deg, #fff 0%, #93c5fd 40%, #2563eb 100%);
   }
+
+  /* ── custom scrollbar ── */
+  ::-webkit-scrollbar { width: 12px; }
+  ::-webkit-scrollbar-track { background: var(--c-bg); }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; border: 3px solid var(--c-bg); }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(56,189,248,0.5); }
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) var(--c-bg); }
 
   /* ── base ── */
   .pr { position: relative; font-family: var(--font-body); background: var(--c-bg); color: var(--c-white); overflow-x: hidden; min-height: 100vh; width: 100%; margin: 0; padding: 0; }
@@ -58,10 +66,9 @@ const CSS = `
   .section-label::after { content:''; flex:1; height:1px; background:var(--c-border); }
 
   /* ────────────────────────────────────────────────
-     2. NAV
+     2. NAV (Estática/Absoluta)
   ──────────────────────────────────────────────── */
-  .nav { position:fixed; top:0; left:0; width:100%; z-index:100; padding:2rem var(--section-px); transition:padding .4s ease,background .4s ease,border-color .4s ease, backdrop-filter .4s ease; background: linear-gradient(to bottom, rgba(2,6,23,0.95) 0%, rgba(2,6,23,0.6) 50%, transparent 100%); }
-  .nav.scrolled { padding:1rem var(--section-px); background:rgba(2,6,23,.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--c-border); }
+  .nav { position:absolute; top:0; left:0; width:100%; z-index:100; padding:2rem var(--section-px); background: linear-gradient(to bottom, rgba(2,6,23,0.7) 0%, transparent 100%); }
   .nav-inner { display:flex; justify-content:space-between; align-items:center; max-width:var(--section-max); margin:0 auto; }
   .nav-logo { font-family:var(--font-head); font-size:1.5rem; font-weight:700; letter-spacing:-.03em; color:var(--c-white); text-decoration:none; }
   .nav-logo span { font-size:1.75rem; background:var(--gradient-m5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
@@ -641,26 +648,8 @@ const BRANDS = [
 // 4. APLICACIÓN PRINCIPAL (UI)
 // ─────────────────────────────────────────────────────────────────────────────
 export default function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const spotlightRef = useRef(null);
   const heroBgRef = useRef(null);
-  const topScrollSensorRef = useRef(null);
-
-  // Manejador del menú on scroll (Ajustado para Vercel/Next.js)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsScrolled(!entry.isIntersecting);
-      },
-      { threshold: 0 }
-    );
-    
-    if (topScrollSensorRef.current) {
-      observer.observe(topScrollSensorRef.current);
-    }
-    
-    return () => observer.disconnect();
-  }, []);
 
   // Spotlight + Parallax en Hero
   useEffect(() => {
@@ -697,16 +686,13 @@ export default function App() {
 
   return (
     <div className="pr">
-      {/* Sensor de Scroll invisible (50px de altura) */}
-      <div ref={topScrollSensorRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "50px", pointerEvents: "none", zIndex: -1, background: "transparent" }} />
-      
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
       <CustomCursor />
       <div className="orb orb-tl" />
       <div className="orb orb-br" />
 
       {/* ── NAV ── */}
-      <nav className={`nav ${isScrolled ? "scrolled" : ""}`}>
+      <nav className="nav">
         <div className="nav-inner">
           <Magnetic>
             <a href="#home" className="nav-logo">
