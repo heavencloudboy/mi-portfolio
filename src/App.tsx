@@ -285,7 +285,7 @@ const CSS = `
   .contact-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:800px; height:800px; background:rgba(37,99,235,.15); filter:blur(150px); border-radius:50%; pointer-events:none; }
   .contact-inner { max-width:var(--section-max); margin:0 auto; position:relative; z-index:10; text-align:center; }
   .contact-pre { font-family:monospace; font-size:.75rem; text-transform:uppercase; letter-spacing:.2em; color:var(--c-sky); margin-bottom:2rem; }
-  .contact-cta { font-size:clamp(1rem,10vw,8rem); font-family:var(--font-head); font-weight:900; letter-spacing:-.04em; line-height:.9; color:#ffffff; text-decoration:none; display:block; transition:all .6s; width:100%; overflow:hidden; }
+  .contact-cta { font-size:clamp(2rem,8vw,8rem); font-family:var(--font-head); font-weight:900; letter-spacing:-.04em; line-height:.9; color:#ffffff; text-decoration:none; display:block; transition:all .6s; width:100%; overflow:hidden; }
   .contact-cta:hover { background:linear-gradient(135deg,var(--c-sky),var(--c-blue),#1d4ed8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .footer-bar { display:flex; justify-content:space-between; align-items:flex-end; margin-top:6rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,.08); flex-wrap:wrap; gap:1rem; }
   .footer-links { display:flex; gap:2rem; }
