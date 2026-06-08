@@ -89,7 +89,7 @@ const CSS = `
 
   /* nombre — anclado al fondo, entra desde la derecha */
   /* AJUSTE APLICADO: transformamos hacia abajo y quitamos margen inferior para bajar todo el bloque */
-  .hero-name-wrap { position:relative; z-index:4; padding:0 var(--section-px); margin-bottom:-0.5rem; overflow:hidden; text-align: center; transform: translateY(1.25rem); }
+  .hero-name-wrap { position:relative; z-index:4; padding:0 var(--section-px); margin-bottom:-0.5rem; overflow:hidden; text-align: center; transform: translateY(-2rem); }
   .hero-name { font-size:clamp(3rem,5vw,6rem); font-weight:800; letter-spacing:-.04em; text-transform:uppercase; line-height:1.1; display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1rem; animation:slideInRight 1s cubic-bezier(.16,1,.3,1) both; }
   .hero-name-accent { background:linear-gradient(135deg,#bae6fd,#2563eb); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   @keyframes slideInRight { from{transform:translateX(80px);opacity:0} to{transform:translateX(0);opacity:1} }
