@@ -30,7 +30,7 @@ const CSS = `
   }
 
   /* ── base ── */
-.pr { font-family: var(--font-body); background: var(--c-bg); color: var(--c-white); overflow-x: hidden; min-height: 100vh; width: 100%; margin: 0; padding: 0; }
+.pr { font-family: var(--font-body); background: var(--c-bg); color: var(--c-white); overflow: clip; min-height: 100vh; width: 100%; margin: 0; padding: 0; }
   .pr *, .pr *::before, .pr *::after { box-sizing: border-box; }
   .fh   { font-family: var(--font-head); }
   .mono { font-family: monospace; }
@@ -60,8 +60,8 @@ const CSS = `
   /* ────────────────────────────────────────────────
      2. NAV
   ──────────────────────────────────────────────── */
-  .nav { position:fixed; top:0; left:0; width:100%; z-index:100; padding:2rem var(--section-px); transition:padding .3s,background .3s,border-color .3s; }
-  .nav.scrolled { padding:1rem var(--section-px); background:rgba(2,6,23,.8); backdrop-filter:blur(20px); border-bottom:1px solid var(--c-border); }
+  .nav { position:fixed; top:0; left:0; width:100%; z-index:100; padding:2rem var(--section-px); transition:padding .3s,background .3s,border-color .3s; background: linear-gradient(to bottom, rgba(2,6,23,0.7) 0%, transparent 100%); }
+  .nav.scrolled { padding:1rem var(--section-px); background:rgba(2,6,23,.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--c-border); }
   .nav-inner { display:flex; justify-content:space-between; align-items:center; max-width:var(--section-max); margin:0 auto; }
   .nav-logo { font-family:var(--font-head); font-size:1.5rem; font-weight:700; letter-spacing:-.03em; color:var(--c-white); text-decoration:none; }
   .nav-logo span { font-size:1.75rem; background:var(--gradient-m5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
@@ -88,21 +88,18 @@ const CSS = `
   .hero-location::before { content:'◎'; font-size:.65rem; color:var(--c-sky); }
 
   /* nombre — anclado al fondo, entra desde la derecha */
-  /* AJUSTE APLICADO: transformamos hacia abajo y quitamos margen inferior para bajar todo el bloque */
   .hero-name-wrap { position:relative; z-index:4; padding:0 var(--section-px); margin-bottom:-0.5rem; overflow:hidden; text-align: center; transform: translateY(-2rem); }
   .hero-name { font-size:clamp(3rem,5vw,6rem); font-weight:800; letter-spacing:-.04em; text-transform:uppercase; line-height:1.1; display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1rem; animation:slideInRight 1s cubic-bezier(.16,1,.3,1) both; }
   .hero-name-accent { background:linear-gradient(135deg,#bae6fd,#2563eb); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   @keyframes slideInRight { from{transform:translateX(80px);opacity:0} to{transform:translateX(0);opacity:1} }
 
   /* estadísticas */
-  /* AJUSTE APLICADO: Reducimos el margin-bottom de 2rem a 1.5rem para que baje junto con el nombre */
   .hero-stats { position:relative; z-index:3; padding:0 var(--section-px); display:flex; flex-wrap:wrap; justify-content:center; gap:3.5rem; margin-bottom:1.5rem; animation:fadeUp 1s .2s cubic-bezier(.16,1,.3,1) both; }
   .hero-stat-item { display:flex; flex-direction:column; gap:.25rem; }
   .hero-stat-num { font-family:var(--font-head); font-size:1.75rem; font-weight:700; background:var(--gradient-m5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; }
   .hero-stat-label { font-size:.65rem; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:rgba(226,232,240,.6); line-height:1.4; }
 
   /* barra inferior: roles + hook */
-  /* AJUSTE APLICADO: Reducimos el padding de 2rem a 1.5rem para ganar aún más espacio hacia abajo */
   .hero-bottom-bar { position:relative; z-index:3; padding:1.5rem var(--section-px); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:2rem; max-width:var(--section-max); margin:0 auto; width:100%; border-top:1px solid rgba(255,255,255,.06); }
   .hero-pill { display:flex; align-items:center; gap:1rem; border:1px solid rgba(255,255,255,.12); border-radius:9999px; padding:.85rem 1.75rem; background:rgba(255,255,255,.06); backdrop-filter:blur(12px); animation:fadeUp 1s .3s cubic-bezier(.16,1,.3,1) both; }
   .hero-hook-inline { max-width:520px; font-size:clamp(1rem,1.8vw,1.25rem); color:rgba(226,232,240,.75); font-weight:300; line-height:1.65; border-left:2px solid rgba(56,189,248,.5); padding-left:1.25rem; animation:fadeUp 1s .5s cubic-bezier(.16,1,.3,1) both; }
@@ -179,7 +176,7 @@ const CSS = `
   ──────────────────────────────────────────────── */
   .video-container {
     position: relative;
-    padding-bottom: 65.75%;
+    padding-bottom: 56.25%; /* Cambiado temporalmente a proporción 16:9 por defecto */
     height: 0;
     overflow: hidden;
     max-width: 100%;
@@ -200,6 +197,7 @@ const CSS = `
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 5rem;
+    align-items: start;
   }
   .video-meta {
     text-align: center;
@@ -264,7 +262,7 @@ const CSS = `
   /* ────────────────────────────────────────────────
      10. MARCAS
   ──────────────────────────────────────────────── */
-  .brands-wrap { border-top:1px solid var(--c-border); display:flex; flex-direction:column; justify-content:flex-end; min-height:400px; padding: 4rem 0 4rem; }
+  .brands-wrap { border-top:1px solid var(--c-border); display:flex; flex-direction:column; justify-content:center; min-height:400px; padding: 4rem 0; }
   .brands-grid { display:flex; flex-direction:column; gap:4rem; align-items:center; width:100%; margin:auto; }
   .brands-row { display:flex; flex-wrap:wrap; justify-content:center; gap:4rem; align-items:center; width:100%; }
   .brand-item { display:flex; align-items:center; justify-content:center; opacity:.4; filter:grayscale(100%); transition:all .4s cubic-bezier(.16,1,.3,1); cursor:default; }
@@ -285,7 +283,7 @@ const CSS = `
   .contact-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:800px; height:800px; background:rgba(37,99,235,.15); filter:blur(150px); border-radius:50%; pointer-events:none; }
   .contact-inner { max-width:var(--section-max); margin:0 auto; position:relative; z-index:10; text-align:center; }
   .contact-pre { font-family:monospace; font-size:.75rem; text-transform:uppercase; letter-spacing:.2em; color:var(--c-sky); margin-bottom:2rem; }
-  .contact-cta { font-size:clamp(2rem,8vw,8rem); font-family:var(--font-head); font-weight:900; letter-spacing:-.04em; line-height:.9; color:#ffffff; text-decoration:none; display:block; transition:all .6s; width:100%; overflow:hidden; }
+  .contact-cta { font-size:clamp(3rem,10vw,8rem); font-family:var(--font-head); font-weight:900; letter-spacing:-.04em; line-height:.9; color:#ffffff; text-decoration:none; display:block; transition:all .6s; width:100%; overflow:hidden; }
   .contact-cta:hover { background:linear-gradient(135deg,var(--c-sky),var(--c-blue),#1d4ed8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .footer-bar { display:flex; justify-content:space-between; align-items:flex-end; margin-top:6rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,.08); flex-wrap:wrap; gap:1rem; }
   .footer-links { display:flex; gap:2rem; }
@@ -297,6 +295,10 @@ const CSS = `
   /* ────────────────────────────────────────────────
      12. RESPONSIVE
   ──────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .videos-secondary-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  }
+
   @media (max-width: 768px) {
     :root { --section-px: 1.5rem; }
     .wrap { padding: 5rem var(--section-px); }
@@ -320,11 +322,11 @@ const CSS = `
     .brands-row { gap: 2rem; }
     .brand-audi img, .brand-vw img, .brand-heinz img { height: 40px; }
     .brand-terpel img, .brand-bimbo img, .brand-colmedica img { height: 45px; }
-    .brand-country img { height: 50px; }
-    .contact-section { padding-top: 5rem; }
     .contact-cta { font-size: clamp(2rem,8vw,3.5rem); }
     .footer-bar { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
-    .videos-secondary-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .videos-secondary-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .video-title { font-size: 1.1rem; }
+    .video-desc { font-size: 0.75rem; }
   }
   @media (pointer: coarse) {
     .cursor-dot, .cursor-ring { display: none !important; }
@@ -928,25 +930,27 @@ export default function App() {
           </div>
         </FadeIn>
 
-        {/* Cuadrícula de Videos Secundarios (Volkswagen y Colmédica) */}
+        {/* Cuadrícula de Videos Secundarios (Verticales/Formato Móvil) */}
         <div className="videos-secondary-grid">
           {VIDEOS_SEC.map((vid, idx) => (
-            <FadeIn key={idx} delay={idx * 150}>
-              <div className="video-container" style={{ paddingBottom: vid.padding }}>
-                <iframe 
-                  src={`https://player.vimeo.com/video/${vid.id}?badge=0&autopause=0&player_id=0&app_id=58479&loop=1`} 
-                  frameBorder="0" 
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} 
-                  title={vid.title}>
-                </iframe>
-              </div>
-              <div className="video-meta">
-                <h4 className="video-title">{vid.title}</h4>
-                <span className="video-cat">{vid.cat}</span>
-                {vid.desc && <p className="video-desc">{vid.desc}</p>}
-              </div>
-            </FadeIn>
+            <div key={idx}>
+              <FadeIn delay={idx * 150}>
+                <div className="video-container" style={{ paddingBottom: vid.padding }}>
+                  <iframe 
+                    src={`https://player.vimeo.com/video/${vid.id}?badge=0&autopause=0&player_id=0&app_id=58479&loop=1`} 
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} 
+                    title={vid.title}>
+                  </iframe>
+                </div>
+                <div className="video-meta">
+                  <h4 className="video-title">{vid.title}</h4>
+                  <span className="video-cat">{vid.cat}</span>
+                  {vid.desc && <p className="video-desc">{vid.desc}</p>}
+                </div>
+              </FadeIn>
+            </div>
           ))}
         </div>
       </section>
