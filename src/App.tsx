@@ -30,7 +30,7 @@ const CSS = `
   }
 
   /* ── base ── */
-  .pr { font-family: var(--font-body); background: var(--c-bg); color: var(--c-white); overflow-x: hidden; min-height: 100vh; }
+.pr { font-family: var(--font-body); background: var(--c-bg); color: var(--c-white); overflow-x: hidden; min-height: 100vh; width: 100%; margin: 0; padding: 0; }
   .pr *, .pr *::before, .pr *::after { box-sizing: border-box; }
   .fh   { font-family: var(--font-head); }
   .mono { font-family: monospace; }
