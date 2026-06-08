@@ -482,7 +482,7 @@ const INFO = {
   email: "juliocesarbooking@gmail.com",
   linkedin: "https://www.linkedin.com/in/juliocesarbooking/",
   behance: "https://www.behance.net/jeezyceezy",
-  cv: "/CV_Julio_Cesar_Hostia.pdf", 
+  cv: "https://drive.google.com/file/d/1_adxJUkwcAcGCbNnePjyoQwLsz-wRjbm/view?usp=sharing", 
   photo:
     "https://res.cloudinary.com/dg3g21ff8/image/upload/q_auto/f_auto/v1780281988/PORTFOLIO_FOTO_FINAL_mnpkel.png",
 };
@@ -840,7 +840,7 @@ export default function App() {
             <h3 className="about-heading fh">{INFO.about}</h3>
             <p className="about-body">{INFO.experience}</p>
             <div className="btn-row">
-              <a href={INFO.cv} download="CV_Julio_Cesar_Hostia.pdf" target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a href={INFO.cv} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 <Download size={16} /> Descargar CV
               </a>
               <a
