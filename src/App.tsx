@@ -322,7 +322,7 @@ const CSS = `
     .brand-terpel img, .brand-bimbo img, .brand-colmedica img { height: 45px; }
     .brand-country img { height: 50px; }
     .contact-section { padding-top: 5rem; }
-    .contact-cta { font-size: clamp(2rem,11vw,3.5rem); }
+    .contact-cta { font-size: clamp(2rem,8vw,3.5rem); }
     .footer-bar { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
     .videos-secondary-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   }
