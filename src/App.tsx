@@ -264,7 +264,7 @@ const CSS = `
   /* ────────────────────────────────────────────────
      10. MARCAS
   ──────────────────────────────────────────────── */
-  .brands-wrap { border-top:1px solid var(--c-border); display:flex; flex-direction:column; justify-content:center; min-height:400px; padding: 4rem 0 4rem; }
+  .brands-wrap { border-top:1px solid var(--c-border); display:flex; flex-direction:column; justify-content:flex-end; min-height:400px; padding: 4rem 0 4rem; }
   .brands-grid { display:flex; flex-direction:column; gap:4rem; align-items:center; width:100%; margin:auto; }
   .brands-row { display:flex; flex-wrap:wrap; justify-content:center; gap:4rem; align-items:center; width:100%; }
   .brand-item { display:flex; align-items:center; justify-content:center; opacity:.4; filter:grayscale(100%); transition:all .4s cubic-bezier(.16,1,.3,1); cursor:default; }
