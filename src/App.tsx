@@ -455,7 +455,7 @@ const Counter = ({ end, prefix = "", suffix = "", duration = 2000 }) => {
         const ease = (t) => 1 - Math.pow(1 - t, 3);
         const animate = (ts) => {
           if (!startTime) startTime = ts;
-          const p = Math.min((ts - startTime) / duration, 1.5);
+          const p = Math.min((ts - startTime) / duration, 1);
           setCount(Math.round(ease(p) * end));
           if (p < 1) requestAnimationFrame(animate);
           else setCount(end);
