@@ -487,7 +487,7 @@ const INFO = {
   about:
     "Siempre me ha fascinado cómo el movimiento cambia la percepción de las cosas. Soy Diseñador Gráfico y Motion Designer, y mi enfoque es simple: crear piezas que se vean increíbles y comuniquen el mensaje correcto. Entiendo que el ritmo y la fluidez de una animación son tan importantes como los colores o la tipografía.",
   experience:
-    "Mi experiencia en Buentipo Anchor me enseñó el valor de la precisión bajo presión. Ahí aprendí a no enamorarme de una sola idea, sino a adaptarme rápido a lo que necesita cada proyecto. En los últimos años también he incorporado herramientas de IA a mi proceso creativo, principalmente para investigar, contrastar referencias y explorar distintas direcciones visuales en etapas tempranas. Para mí, no reemplazan el criterio ni la ejecución; simplemente me permiten dedicar más tiempo a refinar los detalles, fortalecer los conceptos y elevar la calidad final de cada pieza.",
+    "Trabajar en agencia me enseñó a resolver bajo presión, adaptarme a distintos lenguajes visuales y entender que cada proyecto necesita su propia solución. En mi proceso creativo también he incorporado herramientas de IA, sobre todo en las primeras etapas, para investigar, contrastar referencias y explorar nuevas direcciones visuales. Amplían las posibilidades, pero no sustituyen el criterio creativo: lo que me dan es más tiempo para desarrollar conceptos sólidos y cuidar cada detalle de la ejecución.",
   email: "juliocesarbooking@gmail.com",
   linkedin: "https://www.linkedin.com/in/juliocesarbooking/",
   behance: "https://www.behance.net/jeezyceezy",
@@ -745,9 +745,9 @@ export default function App() {
         {/* estadísticas */}
         <div className="hero-stats">
           {[
-            { end: 4, prefix: "+", label: "Años de\nExperiencia" },
+            { end: 5, prefix: "+", label: "Años de\nExperiencia" },
             { end: 50, prefix: "+", label: "Proyectos\nCompletados" },
-            { end: 12, prefix: "+", label: "Marcas\nTrabajadas" },
+            { end: 15, prefix: "+", label: "Marcas\ny Clientes" },
           ].map((s, i) => (
             <div key={i} className="hero-stat-item">
               <span className="hero-stat-num">
