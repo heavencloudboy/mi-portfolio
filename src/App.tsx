@@ -452,7 +452,7 @@ const Counter = ({ end, prefix = "", suffix = "", duration = 2000 }) => {
         if (!entry.isIntersecting) return;
         obs.disconnect();
         let startTime = null;
-        const ease = (t) => (t === 1 ? 1 : 1 - Math.pow(1 - t, 3);
+        const ease = (t) => 1 - Math.pow(1 - t, 3);
         const animate = (ts) => {
           if (!startTime) startTime = ts;
           const p = Math.min((ts - startTime) / duration, 1.5);
