@@ -456,7 +456,7 @@ const Counter = ({ end, prefix = "", suffix = "", duration = 2000 }) => {
         const animate = (ts) => {
           if (!startTime) startTime = ts;
           const p = Math.min((ts - startTime) / duration, 1);
-          setCount(Math.floor(ease(p) * end));
+          setCount(Math.round(ease(p) * end));
           if (p < 1) requestAnimationFrame(animate);
           else setCount(end);
         };
