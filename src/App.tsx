@@ -842,8 +842,8 @@ export default function App() {
             <p className="about-body">{INFO.experience}</p>
             <div className="btn-row">
               <a href={INFO.cv} target="_blank" rel="noopener noreferrer" className="btn-primary">
-  <Eye size={16} /> Ver CV
-</a>
+                <Download size={16} /> Descargar CV
+              </a>
               <a
                 href={INFO.behance}
                 target="_blank"
