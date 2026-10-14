@@ -842,7 +842,7 @@ export default function App() {
             <p className="about-body">{INFO.experience}</p>
             <div className="btn-row">
               <a href={INFO.cv} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                <Download size={16} /> Descargar CV
+                <Eye size={16} /> Ver CV
               </a>
               <a
                 href={INFO.behance}
