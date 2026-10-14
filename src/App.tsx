@@ -491,7 +491,7 @@ const INFO = {
   email: "juliocesarbooking@gmail.com",
   linkedin: "https://www.linkedin.com/in/juliocesarbooking/",
   behance: "https://www.behance.net/jeezyceezy",
-  cv: "https://drive.google.com/file/d/1_adxJUkwcAcGCbNnePjyoQwLsz-wRjbm/view?usp=sharing", 
+  cv: "https://drive.google.com/file/d/1hRVFGwb-bYmDSMtkiuMKeQZNY6PMgMYe/view?usp=sharing", 
   photo:
     "https://res.cloudinary.com/dg3g21ff8/image/upload/q_auto/f_auto/v1780281988/PORTFOLIO_FOTO_FINAL_mnpkel.png",
 };
@@ -746,8 +746,8 @@ export default function App() {
         <div className="hero-stats">
           {[
             { end: 5, prefix: "+", label: "Años de\nExperiencia" },
-            { end: 50, prefix: "+", label: "Proyectos\nCompletados" },
-            { end: 15, prefix: "+", label: "Marcas\ny Clientes" },
+            { end: 40, prefix: "+", label: "Proyectos\nCompletados" },
+            { end: 12, prefix: "+", label: "Marcas\ny Clientes" },
           ].map((s, i) => (
             <div key={i} className="hero-stat-item">
               <span className="hero-stat-num">
